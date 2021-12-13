@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import '../public/style.css';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
+import Survey from './components/Survey';
 
 ReactDOM.render(
   <div>
@@ -17,16 +18,20 @@ ReactDOM.render(
           <ul>
             <li>
               <Link to="/">Home</Link>
+              
+              <Link to="/survey">Survey</Link>
             </li>
           </ul>
         </nav>
+
         <main>
           <Routes>
-            <Route exact path="/" component={<Home />} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/survey" element={<Survey/>} />
           </Routes>
         </main>
       </div>
-      <h1> Democracy Prep Schools Survey Form </h1>
+
     </Router>
   </div>,
   document.getElementById('app')

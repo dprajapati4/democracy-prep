@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 
-class Home extends React.Component {
-  render() {
+const Home = () => {
+
     return (
       <div>
-        <h4> Hi! Thanks for coming to our website. Please take a look at our campuses and students.</h4>
-      
+        <h1> Welcome Parents and Students </h1>
       </div>
     );
-  }
+
 }
+
 export default Home;
