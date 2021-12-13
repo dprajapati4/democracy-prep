@@ -1,11 +1,12 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif
+  font-family: "Open Sans", sans-serif;
+
 }
 
 body {
-  background: linear-gradient(#ffffff, #c0c0c0);
+  /* background: linear-gradient(#ffffff, #c0c0c0); */
   height: 100vh;
   padding: 0;
   margin: 0;
@@ -27,6 +28,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: linear-gradient(#ffffff, #c0c0c0)
 
 }
 
@@ -37,4 +39,9 @@ li {
 h1 {
   color: #003b70;
   text-align: center;
+}
+
+.studentInformation{
+flex-wrap:wrap;
+padding: 5px;
 }
