@@ -19,7 +19,7 @@ const createApp = () => {
   app.use(express.urlencoded({ extended: true }));
 
   // Appends auth and api to the appropriate routes
-  // app.use('/auth', require('./auth'))
+  
   app.use('/api', require('./api'))
 
   // Any remaining requests with an extension (.js, .css, etc.) send 404 to client
@@ -55,8 +55,8 @@ const startListening = () => {
 
 // Sync the db
 const syncDb = () =>
-//  db.sync();
-db.sync({force:true});
+ db.sync();
+// db.sync({force:true});
 
 
 // When called this will sync the database and create the app and start listening for request

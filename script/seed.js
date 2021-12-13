@@ -1,7 +1,9 @@
 const {Question, Choice, Student} = require('../server/db/models')
 const db = require('../server/db/index')
 async function seed() {
-  await db.sync({ force: true }) // clears db and matches models to tables
+  await db.sync()
+  // clears db and matches models to tables
+  // await db.sync({ force: true })
   console.log('db synced!')
 
   // Questions
