@@ -57,13 +57,14 @@ const Survey = () => {
   return (
     <div>
       <h1> Democracy Prep Schools Survey Form </h1>
-      <form onSubmit={handleSubmit}>
+      <form className='form'  onSubmit={handleSubmit}>
         <div className="studentInformation">
           <label for="name">Student Name:</label>
           <input
             type="text"
             id="name"
             name="name"
+            required
             onChange={(e) => handleStudentData(e, { ['name']: e.target.value })}
           />
           <label for="school">School:</label>
@@ -71,6 +72,7 @@ const Survey = () => {
             type="text"
             id="school"
             name="school"
+            required
             onChange={(e) =>
               handleStudentData(e, { ['school']: e.target.value })
             }
@@ -80,6 +82,7 @@ const Survey = () => {
             type="text"
             id="grade"
             name="grade"
+            required
             onChange={(e) =>
               handleStudentData(e, { ['grade']: e.target.value })
             }
@@ -89,12 +92,13 @@ const Survey = () => {
             type="text"
             id="class"
             name="class"
+            required
             onChange={(e) =>
               handleStudentData(e, { ['class']: e.target.value })
             }
           />
         </div>
-
+            <div className='questions' >
         {questions.map((question) => {
           return (
             <div>
@@ -104,6 +108,7 @@ const Survey = () => {
                   <div>
                     <input
                       type={question.type}
+                      required
                       onChange={(e) =>
                         handleChange(e, { [choice.questions_fk]: choice.id })
                       }
@@ -120,6 +125,7 @@ const Survey = () => {
           );
         })}
         <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );

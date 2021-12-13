@@ -19,8 +19,11 @@ ReactDOM.render(
           <ul>
             <li>
               <Link to="/">Home</Link>
+              <br/>
               <Link to="/survey">Survey</Link>
+              <br/>
               <Link to="/admin">Admin</Link>
+              <br/>
             </li>
           </ul>
         </nav>

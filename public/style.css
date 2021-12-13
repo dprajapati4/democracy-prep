@@ -20,6 +20,7 @@ nav {
   display: flex;
   height: 80px;
   padding: 10px;
+  justify-content: space-between;
 
 }
 
@@ -28,7 +29,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(#ffffff, #c0c0c0)
+  background: linear-gradient(#ffffff, #c0c0c0);
+  padding: 20px;
 
 }
 
@@ -42,6 +44,19 @@ h1 {
 }
 
 .studentInformation{
-flex-wrap:wrap;
+ justify-content: space-around;
+flex-direction: column;
 padding: 5px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
 }
