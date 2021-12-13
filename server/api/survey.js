@@ -1,16 +1,21 @@
-const router = require('express').Router()
-const {Question} = require('../db/models')
-module.exports = router
+const router = require('express').Router();
+const { Question, Choice } = require('../db/models');
+module.exports = router;
 
 // GET api/survey
 
-router.get('/',async(req,res,next) => {
+router.get('/', async (req, res, next) => {
   try {
-    const questions = await Question.findAll();
-    console.log('the questions:', questions)
-    res.json(questions).status(200)
+
+    const qa = await Question.findAll({
+      include: [{
+         model: Choice,
+        }],
+      });
+    res.json(qa).status(200);
+
   } catch (error) {
-    next(error)
-    console.log('Error in the get /survey route', error)
+    next(error);
+    console.log('Error in the get /survey route', error);
   }
-})
+});

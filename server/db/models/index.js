@@ -4,6 +4,7 @@ const Student = require('./student')
 
 
 Question.hasMany(Choice, { foreignKey: 'questions_fk' })
+Choice.belongsTo(Question);
 
 Choice.belongsToMany(Student, { through: 'answer' })
 
