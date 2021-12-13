@@ -17,22 +17,32 @@ const Survey = () => {
     }
   }
 
+  async function submitData(){
+    try {
+      await axios.post('/api/survey', {
+        student: studentData,
+        answers: selectedChoices,
+      });
+    } catch (error) {
+      console.log('Error submitting survey data', error);
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('in the handle sub')
-   };
+    submitData()
+  }
+
+
 
   const handleChange = (e, choice) => {
     e.preventDefault();
     setChoices(() => ({ ...selectedChoices, ...choice }));
   };
 
-  const handleStudentData = (e) => {
+  const handleStudentData = (e, field) => {
     e.preventDefault();
-
-    setStudent({
-
-    })
+    setStudent(() => ({ ...studentData, ...field }));
     console.log('hc',e.target.label)
   }
 
@@ -40,20 +50,20 @@ const Survey = () => {
     fetchData();
   }, []);
 
-  console.log('choices', selectedChoices);
+  console.log('student', selectedChoices);
 
   return (
     <div>
       <h1> Democracy Prep Schools Survey Form </h1>
       <form onSubmit={handleSubmit}>
       <label for="name">Student Name:</label>
-      <input type="text" id="name" name="name" onChange={(e) => handleStudentData(e,)}/>
+      <input type="text" id="name" name="name" onChange={(e) => handleStudentData(e,{['name']:e.target.value})}/>
       <label for="school">School:</label>
-      <input type="text" id="school" name="school" onChange={handleStudentData}/>
+      <input type="text" id="school" name="school" onChange={(e) => handleStudentData(e,{['school']:e.target.value})}/>
       <label for="grade">Grade:</label>
-      <input type="text" id="grade" name="grade" onChange={handleStudentData}/>
+      <input type="text" id="grade" name="grade" onChange={(e) => handleStudentData(e,{['grade']:e.target.value})}/>
       <label for="class">Class:</label>
-      <input type="text" id="class" name="class" onChange={handleStudentData}/>
+      <input type="text" id="class" name="class" onChange={(e) => handleStudentData(e,{['class']:e.target.value})}/>
 
         {questions.map((question) => {
           return (
