@@ -13,11 +13,11 @@ const Student = db.define('student', {
     allowNull: false
   },
   school: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false
   },
   class: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false
   }
 })

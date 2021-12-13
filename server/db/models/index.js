@@ -1,14 +1,14 @@
 const Question = require('./question')
-const Answer = require('./answer')
+const Choice = require('./choice')
 const Student = require('./student')
 
-// Question has many students
-Question.hasMany(Student, { foreignKey: 'questions_answered' });
 
-Student.belongsToMany(Question, {through: Answer})
+Question.hasMany(Choice, { foreignKey: 'questions_fk' })
+
+Choice.belongsToMany(Student, { through: 'answer' })
 
 module.exports = {
   Question,
-  Answer,
+  Choice,
   Student
 }
