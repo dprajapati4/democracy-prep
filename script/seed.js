@@ -1,4 +1,4 @@
-const {Question, Choice, Student} = require('../server/db/models')
+const {Question, Choice, Student, Answer} = require('../server/db/models')
 const db = require('../server/db/index')
 async function seed() {
   // await db.sync()
@@ -61,18 +61,6 @@ async function seed() {
   ];
 
   const questions = [
-    // {
-    //   type:'text',
-    //   question: 'Parent/Guardian Name'
-    // },
-    // {
-    //   type:'text',
-    //   question: 'Parent/Guardian Email'
-    // },
-    // {
-    //   type:'text',
-    //   question: 'Students in household'
-    // },
     {
       type:'radio',
       question: 'Please rate your level of agreement with the following sentence: I am concerned about my children returning in-person learning for the upcoming semester due to health and safety reasons related to COVID-19.'
@@ -171,6 +159,61 @@ async function seed() {
     }
   ]
 
+  const answers = [
+
+    {
+      questionId:1,
+      choiceId:2,
+      studentId:1,
+    },
+    {
+      questionId:2,
+      choiceId:5,
+      studentId:1,
+    },
+    {
+      questionId:3,
+      choiceId:8,
+      studentId:1,
+    },
+    {
+      questionId:4,
+      choiceId:12,
+      studentId:1,
+    },
+    {
+      questionId:5,
+      choiceId:16,
+      studentId:1,
+    },
+    {
+      questionId:1,
+      choiceId:2,
+      studentId:2,
+    },
+    {
+      questionId:2,
+      choiceId:5,
+      studentId:2,
+    },
+    {
+      questionId:3,
+      choiceId:8,
+      studentId:2,
+    },
+    {
+      questionId:4,
+      choiceId:12,
+      studentId:2,
+    },
+    {
+      questionId:5,
+      choiceId:16,
+      studentId:2,
+    },
+
+  ]
+
   const studentInstances = await Student.bulkCreate(students)
   console.log(`seeded ${students.length} students`)
 
@@ -179,6 +222,9 @@ async function seed() {
 
   const choiceInstances = await Choice.bulkCreate(choices)
   console.log(`seeded ${choices.length} choices`)
+
+  const answerInstances = await Answer.bulkCreate(answers)
+  console.log(`seeded ${answers.length} answers`)
 
 
 }

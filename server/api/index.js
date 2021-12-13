@@ -3,7 +3,7 @@ module.exports = router;
 
 
 router.use('/survey', require('./survey'))
-// router.use('/admin', require('./admin'))
+router.use('/admin', require('./admin'))
 
 
 router.use((req, res, next) => {

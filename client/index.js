@@ -4,6 +4,7 @@ import '../public/style.css';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Survey from './components/Survey';
+import Admin from './components/Admin'
 
 ReactDOM.render(
   <div>
@@ -18,8 +19,8 @@ ReactDOM.render(
           <ul>
             <li>
               <Link to="/">Home</Link>
-              
               <Link to="/survey">Survey</Link>
+              <Link to="/admin">Admin</Link>
             </li>
           </ul>
         </nav>
@@ -28,6 +29,7 @@ ReactDOM.render(
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/survey" element={<Survey/>} />
+            <Route path="/admin" element={<Admin/>} />
           </Routes>
         </main>
       </div>

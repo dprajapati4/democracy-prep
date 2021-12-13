@@ -37,18 +37,21 @@ router.post('/', async (req, res, next) => {
     }
     if(foundStudent){
       console.log("the student", foundStudent)
-     const data =  Object.keys(answers).forEach(async key =>{
+     const data = Object.keys(answers).map(async key => {
        console.log("questionId",key,
         "choiceId",answers[key],
         "studentId", foundStudent.id)
-      return(
-        await Answer.create({
+
+        const createdAnswer = await Answer.create({
           questionId:key,
           choiceId:answers[key],
           studentId: foundStudent.id
-        }))
+        })
+        if(createdAnswer){
+          return createdAnswer;
+        }
       })
-      console.log('the data', data)
+      res.send(200);
     }
   } catch (error) {
     next(error);
