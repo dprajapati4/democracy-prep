@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const db = require('./db/db');
+const db = require('./db');
 const PORT = process.env.PORT || 3000; // Useful if you deploy to Heroku!
 const app = express();
 module.exports = app;
@@ -54,14 +54,14 @@ const startListening = () => {
 };
 
 // Sync the db
-const syncDb = () => db.sync();
-// This will drop all the tables and recreate them.
-//db.sync({force:true})
+const syncDb = () =>
+//  db.sync();
+db.sync({force:true});
 
 
 // When called this will sync the database and create the app and start listening for request
 async function bootApp() {
-  // await syncDb()
+  await syncDb()
   await createApp()
   await startListening()
 }

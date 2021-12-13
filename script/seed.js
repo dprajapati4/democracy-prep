@@ -1,4 +1,4 @@
-const {db} = require('../server/db/db')
+const db = require('../server/db')
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -7,9 +7,11 @@ async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
 
-  // Creating Users etc here
 
-  
+
+  // Creating Users etc here
+}
+
 /*
  We've separated the `seed` function from the `runSeed` function.
  This way we can isolate the error handling and exit trapping.

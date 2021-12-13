@@ -2,19 +2,19 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 
 
-// Simple model example
-const User = db.define('user', {
-  username: {
+const Question = db.define('question', {
+  type: {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false
   },
-  password: {
-    type: Sequelize.STRING,
+  question: {
+    type: Sequelize.TEXT,
+    allowNull: false
   }
 })
 
-module.exports = User
+module.exports = Question
 
 // Inlude Associations
 
