@@ -4,8 +4,8 @@ const db = require('../db');
 const Choice = db.define('choices', {
   choice: {
     type: Sequelize.TEXT,
-    allowNull: false
-  }
-})
+    allowNull: false,
+  },
+});
 
 module.exports = Choice;

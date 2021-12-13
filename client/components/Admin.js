@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import _ from 'lodash'
+import _ from 'lodash';
 
 const Home = () => {
   const [results, setResults] = useState({});
@@ -9,10 +9,12 @@ const Home = () => {
 
   async function fetchData() {
     try {
-      const { results, questions, choices } = await axios.get('/api/admin/results');
+      const { results, questions, choices } = await axios.get(
+        '/api/admin/results'
+      );
       const resultData = results.data;
       if (resultData.length) {
-        const updatedData =  organizedData(resultData);
+        const updatedData = organizedData(resultData);
         setResults(updatedData);
         setQuestions(questions);
         setChoices(choices);
@@ -22,49 +24,46 @@ const Home = () => {
     }
   }
 
-
- function organizedData(results){
-  const resultsCount = {};
- results.forEach(item => {
-   const {questionId, choiceId} = item;
-   if(resultsCount[questionId]){
-     if(resultsCount[questionId][choiceId]){
-       resultsCount[questionId][choiceId]++;
-     }
-     else{
-      resultsCount[questionId][choiceId] = 1;
-     }
-   }
-   else {
-     resultsCount[questionId] = {
-       [choiceId]:1
-     }
-   }
- })
- return resultsCount;
-}
+  function organizedData(results) {
+    const resultsCount = {};
+    results.forEach((item) => {
+      const { questionId, choiceId } = item;
+      if (resultsCount[questionId]) {
+        if (resultsCount[questionId][choiceId]) {
+          resultsCount[questionId][choiceId]++;
+        } else {
+          resultsCount[questionId][choiceId] = 1;
+        }
+      } else {
+        resultsCount[questionId] = {
+          [choiceId]: 1,
+        };
+      }
+    });
+    return resultsCount;
+  }
 
   useEffect(() => {
     fetchData();
   }, []);
 
-function numberOfSurveys(answers){
-  return _.uniq(answers, (answer) => {answer.studentId}).length;
-}
+  function numberOfSurveys(answers) {
+    return _.uniq(answers, (answer) => {
+      answer.studentId;
+    }).length;
+  }
 
-function groupData(){
-  return Object.keys(results).map(key => {
-   const question = _.find(questions, ()=> question.id === key);
-  })
-}
-const da = groupData();
-console.log('da', da);
-    return (
-      <div>
-        <h1> Results </h1>
-      </div>
-    );
-
-}
+  function groupData() {
+    return Object.keys(results).map((key) => {
+      const question = _.find(questions, () => question.id === key);
+    });
+  }
+  const da = groupData();
+  return (
+    <div>
+      <h1> Results </h1>
+    </div>
+  );
+};
 
 export default Home;

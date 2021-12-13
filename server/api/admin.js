@@ -10,23 +10,9 @@ router.get('/:sortBy', async (req, res, next) => {
     const questions = await Question.findAll();
     const choices = await Choice.findAll();
 
-    res.json({results, questions, choices}).status(200);
-
-
-    // const { count, rows } = await Answer.findAndCountAll({
-    //   where: {
-    //     title: {
-    //       [Op.like]: 'foo%'
-    //     }
-    //   },
-    //   offset: 10,
-    //   limit: 2
-    // });
-    // console.log(count);
-    // console.log(rows);
-
+    res.json({ results, questions, choices }).status(200);
   } catch (error) {
     next(error);
     console.log('Error in the get /admin/results route', error);
   }
-})
+});

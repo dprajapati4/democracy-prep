@@ -4,16 +4,16 @@ const db = require('../db');
 const Answer = db.define('answers', {
   questionId: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
   },
   choiceId: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: false,
   },
   studentId: {
     type: Sequelize.INTEGER,
-    allowNull: false
-  }
-})
+    allowNull: false,
+  },
+});
 
 module.exports = Answer;

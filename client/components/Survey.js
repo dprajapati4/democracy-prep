@@ -45,7 +45,6 @@ const Survey = () => {
   const handleStudentData = (e, field) => {
     e.preventDefault();
     setStudent(() => ({ ...studentData, ...field }));
-    console.log('hc', e.target.label);
   };
 
   useEffect(() => {
@@ -57,7 +56,7 @@ const Survey = () => {
   return (
     <div>
       <h1> Democracy Prep Schools Survey Form </h1>
-      <form className='form'  onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <div className="studentInformation">
           <label for="name">Student Name:</label>
           <input
@@ -98,33 +97,33 @@ const Survey = () => {
             }
           />
         </div>
-            <div className='questions' >
-        {questions.map((question) => {
-          return (
-            <div>
-              <p key={question.id}> {question.question} </p>
-              {question.choices.map((choice) => {
-                return (
-                  <div>
-                    <input
-                      type={question.type}
-                      required
-                      onChange={(e) =>
-                        handleChange(e, { [choice.questions_fk]: choice.id })
-                      }
-                      name={`Choice for ${choice.questions_fk}`}
-                      value={choice.id}
-                    />
-                    <label for={`Choice for ${choice.questions_fk}`}>
-                      {choice.choice}
-                    </label>
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
-        <button type="submit">Submit</button>
+        <div className="questions">
+          {questions.map((question) => {
+            return (
+              <div>
+                <p key={question.id}> {question.question} </p>
+                {question.choices.map((choice) => {
+                  return (
+                    <div>
+                      <input
+                        type={question.type}
+                        required
+                        onChange={(e) =>
+                          handleChange(e, { [choice.questions_fk]: choice.id })
+                        }
+                        name={`Choice for ${choice.questions_fk}`}
+                        value={choice.id}
+                      />
+                      <label for={`Choice for ${choice.questions_fk}`}>
+                        {choice.choice}
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>
