@@ -90,7 +90,7 @@ async function seed() {
       question: 'Does your household have an adequate internet connection for virtual learning?'
     },
     {
-      type:'select',
+      type:'radio',
       question: ' What is your comfort level of returning to school in the upcoming school year?'
     }
   ];

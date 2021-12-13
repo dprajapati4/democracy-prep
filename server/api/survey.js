@@ -19,3 +19,12 @@ router.get('/', async (req, res, next) => {
     console.log('Error in the get /survey route', error);
   }
 });
+
+// router.post('/', async (req,res,next) => {
+//   try {
+//     const {selectedChoices,studentId} = req.body
+//   } catch (error) {
+//     next(error);
+//     console.log('Error in the post /survey route', error);
+//   }
+// })
