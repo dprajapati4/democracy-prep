@@ -5,7 +5,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: arial, sans-serif;
+  font-family: "Open Sans", sans-serif
 }
 
 body {
@@ -18,11 +18,12 @@ body {
 
 nav {
   align-items: center;
-  background-color: #333333;
+  background-color: #f6f3f3;
   color: #c0c0c0;
   display: flex;
   height: 80px;
   padding: 10px;
+
 }
 
 main {
