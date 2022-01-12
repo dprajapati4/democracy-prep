@@ -27,8 +27,8 @@ This project was completed by [Deep Prajapati](https://www.linkedin.com/in/deepp
  Create an that app that collects survey data from scholar families.
 
 The app should
-1. No more than 1 survey response is logged per family without requiring a logging.
-2. We can accurately attribute each response to a scholar with minimal human input or data auditing required.
+1. Ensure that no more than 1 survey response is logged per family without requiring a log in.
+2. Accurately attribute each response to a scholar with minimal human input or data auditing required.
 3.  On a private page provide summary data on responses received to date (e.g. X% of parents answered Y on question Z) that is easy to view at any time
 &nbsp;
 ## Discussion
