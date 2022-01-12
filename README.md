@@ -29,14 +29,14 @@ This project was completed by [Deep Prajapati](https://www.linkedin.com/in/deepp
 The app should
 1. Ensure that no more than 1 survey response is logged per family without requiring a log in.
 2. Accurately attribute each response to a scholar with minimal human input or data auditing required.
-3.  On a private page provide summary data on responses received to date (e.g. X% of parents answered Y on question Z) that is easy to view at any time
+3. On a private page provide summary data on responses received to date (e.g. X% of parents answered Y on question Z) that is easy to view at any time
 &nbsp;
 ## Discussion
 ***
 #### **Built With**
 - [React.js](https://reactjs.org/)
 - [Node.js](https://nodejs.org/en/)
-- [Next.js](https://nextjs.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [Express](https://expressjs.com/)
 #### **If I had more time I would love to**
 - Add some tests and error handling.
